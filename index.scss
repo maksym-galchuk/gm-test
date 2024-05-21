@@ -1,0 +1,138 @@
+:root {
+  --color-green: #179D2E;
+  --color-blue: #0177B8;
+  --color-yellow: #F5AF23;
+  --color-red: #F02E2C;
+
+  --main-font-color: #2D2D2D;
+  --heading-font-color: #181833;
+
+  --index: calc(1vw + 1vh);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+
+  @media screen and (max-width: 1144px) {
+    font-size: 56.25%;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 40%;
+  }
+}
+
+body {
+  color: var(--main-font-color);
+  font-family: "Inter", sans-serif;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 36px */
+}
+
+.container {
+  max-width: 1380px;
+  padding: 30px;
+  margin-inline: auto;
+}
+
+.card-wrapper {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media screen and (max-width: 1144px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding: 2.4rem;
+  border-radius: 4px;
+  border: 2px solid black;
+
+  &--green {
+    border-color: var(--color-green);
+    .card__img {
+      fill: var(--color-green);
+    }
+  }
+
+  &--blue {
+    border-color: var(--color-blue);
+    .card__img {
+      fill: var(--color-blue);
+    }
+  }
+
+  &--yellow {
+    border-color: var(--color-yellow);
+    .card__img {
+      fill: var(--color-yellow);
+    }
+  }
+
+  &--red {
+    border-color: var(--color-red);
+    .card__img {
+      fill: var(--color-red);
+    }
+  }
+
+  &__img {
+    align-self: flex-end;
+    height: 10rem;
+
+    @media screen and (max-width: 576px) {
+      align-self: center;
+    }
+  }
+
+  &__title {
+    color: var(--heading-font-color);
+    font-size: 3.6rem;
+    font-weight: 600;
+    line-height: 120%;
+
+    @media screen and (max-width: 576px) {
+      align-self: center;
+    }
+  }
+
+  &__list {
+    list-style: none;
+
+  }
+
+  &__list-item {
+    padding-left: 3.6rem;
+    position: relative;
+    &::before {
+      content: "•";
+      color: var(--heading-font-color);
+      position: absolute;
+      left: 1.2rem;
+    }
+  }
+
+  &__link:any-link {
+    margin-top: auto;
+    align-self: flex-end;
+    color: inherit;
+  }
+}
+
